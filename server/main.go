@@ -34,5 +34,5 @@ func newServer() *serverImpl {
 }
 
 func (s *serverImpl) GetPost(ctx context.Context, _ *post.Empty) (*post.GetPostResponse, error) {
-	return &post.GetPostResponse{Title: "title", Description: "description"}, nil
+	return &post.GetPostResponse{Title: "some title", Description: "some description"}, nil
 }

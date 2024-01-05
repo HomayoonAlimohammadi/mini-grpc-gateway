@@ -1,4 +1,4 @@
-.PHONY: generate mini-grpc-gateway fmt run
+.PHONY: generate mini-grpc-gateway fmt run backend
 
 GRG_SRCS := $(patsubst ./%,%,$(shell find . -path "*/grpc-rest-gateway/*.go"))
 
@@ -16,8 +16,8 @@ fmt: $(GRG_SRCS)
 	@gofmt -s -w $(GRG_SRCS) && goimports -w $(GRG_SRCS) && echo "Formatted successfully!"
 
 backend: generate fmt
-	go run ./server
+	@go run ./server
 
 run: generate
-	go run ./grpc-rest-gateway
+	@go run ./grpc-rest-gateway
 	

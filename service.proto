@@ -15,16 +15,16 @@ message GetPostResponse {
 
 service PostService {
   rpc GetPost(Empty) returns (GetPostResponse) {
-    option (mini_grpc_options) = {
+    option (mini_grpc_gateway_options) = {
         url: "/api/post"
     };
   }
 }
 
-message MiniGRPCOptions {
+message MiniGRPCGatewayOptions {
     string url = 1;
 }
 
 extend google.protobuf.MethodOptions {
-    MiniGRPCOptions mini_grpc_options = 1234562;
+    MiniGRPCGatewayOptions mini_grpc_gateway_options = 1234562;
 }

@@ -21,7 +21,7 @@ type MethodConfig struct {
 	GoName  string
 	In      *protogen.Message
 	Out     *protogen.Message
-	Options *post.MiniGRPCOptions
+	Options *post.MiniGRPCGatewayOptions
 }
 
 type ServiceConfig struct {
@@ -70,9 +70,9 @@ func extractMethodsConfig(svc *protogen.Service) []MethodConfig {
 	for i, m := range svc.Methods {
 		methName := m.Desc.Name()
 
-		o, ok := proto.GetExtension(m.Desc.Options(), post.E_MiniGrpcOptions).(*post.MiniGRPCOptions)
+		o, ok := proto.GetExtension(m.Desc.Options(), post.E_MiniGrpcGatewayOptions).(*post.MiniGRPCGatewayOptions)
 		if !ok {
-			logrus.Infof("failed to cast method `%s` option to *post.MiniGRPCOption", methName)
+			logrus.Infof("failed to cast method `%s` option to *post.MiniGRPCGAtewayOption", methName)
 		}
 
 		methConfs[i] = MethodConfig{

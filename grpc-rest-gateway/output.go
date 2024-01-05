@@ -1,6 +1,6 @@
 package main
 
-// [{Name:PostService Package:post GoName:PostService Methods:[{Name:GetPost GoName:GetPost In:0x1400042ed80 Out:0x1400042eea0 Options:url:"/api/post"}] GPRCPort:50051}]
+// [{Name:PostService Package:post GoName:PostService Methods:[{Name:GetPost GoName:GetPost In:0x1400042ec60 Out:0x1400042ed80 Options:url:"/api/post"}] GPRCPort:50051}]
 import (
 	"log"
 	"fmt"
