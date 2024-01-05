@@ -1,10 +1,14 @@
-.PHONY: generate mini-grpc-gateway fmt run backend
+.PHONY: generate mini-grpc-gateway fmt run backend generate-backend
 
 GRG_SRCS := $(patsubst ./%,%,$(shell find . -path "*/grpc-rest-gateway/*.go"))
 
+generate-backend:
+	@echo "Generating new files..."
+	@mkdir -p ./pb/post
+	@protoc --go_out=./pb/post --go_opt=paths=source_relative --go-grpc_out=./pb/post --go-grpc_opt=paths=source_relative service.proto 
+
 generate: mini-grpc-gateway
 	@echo "Generating new files..."
-	@protoc --go_out=./pb/post --go_opt=paths=source_relative --go-grpc_out=./pb/post --go-grpc_opt=paths=source_relative service.proto 
 	@protoc --mini-grpc-gateway_out=./pb/post service.proto && echo "Generated successfully!"
 
 mini-grpc-gateway:

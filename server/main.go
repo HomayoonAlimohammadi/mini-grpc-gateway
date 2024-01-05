@@ -6,9 +6,10 @@ import (
 	"log"
 	"net"
 
-	"github.com/HomayoonAlimohammadi/mini-grpc-gateway/pb/post"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+
+	"github.com/HomayoonAlimohammadi/mini-grpc-gateway/pb/post"
 )
 
 type serverImpl struct {

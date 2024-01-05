@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/HomayoonAlimohammadi/mini-grpc-gateway/config"
 	"google.golang.org/protobuf/compiler/protogen"
+
+	"github.com/HomayoonAlimohammadi/mini-grpc-gateway/config"
 )
 
 func Export(gen *protogen.Plugin, conf []config.ServiceConfig) {
@@ -15,7 +16,6 @@ func Export(gen *protogen.Plugin, conf []config.ServiceConfig) {
 	)
 
 	g.P(("package main"))
-	g.P(fmt.Sprintf("// %+v", conf))
 
 	exportImports(g)
 
