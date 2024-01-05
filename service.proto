@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package post;
+
+import "google/protobuf/descriptor.proto";
+
+option go_package = "github.com/HomayoonAlimohammadi/mini-grpc-gateway/pb/post";
+
+message Empty {}
+
+message GetPostResponse {
+    string title = 1;
+    string description = 2;
+}
+
+service PostService {
+  rpc GetPost(Empty) returns (GetPostResponse) {
+    option (mini_grpc_options) = {
+        url: "/api/post"
+    };
+  }
+}
+
+message MiniGRPCOptions {
+    string url = 1;
+}
+
+extend google.protobuf.MethodOptions {
+    MiniGRPCOptions mini_grpc_options = 1234562;
+}

@@ -1,0 +1,8 @@
+{
+    "PostService": {
+        "grpc-port": 50051
+    },
+    "OtherService": {
+        "grpc-port": 50052
+    }
+}
